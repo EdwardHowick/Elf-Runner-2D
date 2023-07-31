@@ -1,3 +1,5 @@
 res://Levels/test_level.tscn
 res://Character/player.tscn
+res://UI/health_change_manager.tscn
+res://UI/health_changed_label.tscn
 res://Character/Enemies/Snail/snail.tscn

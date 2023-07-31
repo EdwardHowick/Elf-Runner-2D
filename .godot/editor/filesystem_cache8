@@ -1,9 +1,10 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1689560242
+::res://::1690770490
 icon.svg::CompressedTexture2D::1701750855830309230::1680368532::1680368532::1::::<><>::
 README.md::TextFile::-1::1680368532::0::1::::<><>::
+signal_bus.gd::GDScript::-1::1689719045::0::1::::<>Node<>::
 ::res://Art/::1689481068
-::res://Art/Legacy-Fantasy - High Forest 2.3/::1689481068
+::res://Art/Legacy-Fantasy - High Forest 2.3/::1689755605
 Credit.txt::TextFile::-1::1680368532::0::1::::<><>::
 ::res://Art/Legacy-Fantasy - High Forest 2.3/Assets/::1689476072
 Buildings.png::CompressedTexture2D::997913607088430090::1680368532::1680368532::1::::<><>::
@@ -69,20 +70,27 @@ Golden-Tree.png::CompressedTexture2D::6878549809411101730::1680368532::168036853
 Green-Tree.png::CompressedTexture2D::725885093742723659::1680368532::1680368532::1::::<><>::
 Red-Tree.png::CompressedTexture2D::1209529535376390761::1680368532::1680368532::1::::<><>::
 Yellow-Tree.png::CompressedTexture2D::1752902837429214101::1680368532::1680368532::1::::<><>::
-::res://Character/::1689481603
+::res://Character/::1690514735
 AirState.gd::GDScript::-1::1680368532::0::1::::AirState<>State<>::
 Attack.gd::GDScript::-1::1689479253::0::1::::<>State<>::
-CharacterStateMachine.gd::GDScript::-1::1680368532::0::1::::CharacterStateMachine<>Node<>::
+CharacterStateMachine.gd::GDScript::-1::1690512178::0::1::::CharacterStateMachine<>Node<>::
 GroundState.gd::GDScript::-1::1689477599::0::1::::GroundState<>State<>::
+HitState.gd::GDScript::-1::1690512178::0::1::::HitState<>State<>::
 LandingState.gd::GDScript::-1::1680368532::0::1::::<>State<>::
 player.gd::GDScript::-1::1689479253::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::1661849364936379042::1689481596::0::1::::<><>::res://Character/player.gd<>uid://ye5nn4e6kxlm<>uid://o5b84w3wxp51<>uid://c7kifusd3mwr6<>uid://cxhqcma70ikl8<>res://Character/CharacterStateMachine.gd<>res://Character/GroundState.gd<>res://Character/AirState.gd<>res://Character/Attack.gd<>res://Character/LandingState.gd<>res://Character/StateDebugLabel.gd<>res://Character/Sword.gd
-State.gd::GDScript::-1::1680368532::0::1::::State<>Node<>::
+player.tscn::PackedScene::1661849364936379042::1690512528::0::1::::<><>::res://Character/player.gd<>uid://cf5vr3rdkcdr0<>uid://bvqkoppprkbil<>uid://cwl6m881dulgh<>uid://cilbq1jmxocd0<>res://Character/CharacterStateMachine.gd<>res://Character/GroundState.gd<>res://Character/AirState.gd<>res://Character/Attack.gd<>res://Character/LandingState.gd<>res://Character/StateDebugLabel.gd<>res://Character/Sword.gd
+State.gd::GDScript::-1::1690333334::0::1::::State<>Node<>::
 StateDebugLabel.gd::GDScript::-1::1680368532::0::1::::<>Label<>::
-Sword.gd::GDScript::-1::1689480622::0::1::::<>Area2D<>::
-::res://Character/Enemies/::1689481604
-::res://Character/Enemies/Snail/::1689481604
-Damagable.gd::GDScript::-1::1689481419::0::1::::<>Node<>::
-snail.tscn::PackedScene::6018212158020486568::1689481596::0::1::::<><>::uid://bafysysf6pi1l<>res://Character/Enemies/Snail/Damagable.gd
-::res://Levels/::1689481348
-test_level.tscn::PackedScene::8026915360369246657::1689481596::0::1::::<><>::uid://edo4wa4gcbn3<>uid://ddslj7xfxet4w<>uid://xxaoff7gwbrm<>uid://cr0jcswwf7lky
+Sword.gd::GDScript::-1::1689718584::0::1::::<>Area2D<>::
+::res://Character/Enemies/::1690514733
+::res://Character/Enemies/Snail/::1690514733
+Damagable.gd::GDScript::-1::1690333334::0::1::::Damageable<>Node<>::
+snail.gd::GDScript::-1::1690511228::0::1::::<>CharacterBody2D<>::
+snail.tscn::PackedScene::6018212158020486568::1690512529::0::1::::<><>::uid://cxij3cdd4xf4t<>uid://dpii7hugyoc76<>res://Character/Enemies/Snail/snail.gd<>res://Character/Enemies/Snail/Damagable.gd<>res://Character/CharacterStateMachine.gd<>res://Character/State.gd<>res://Character/HitState.gd
+::res://Levels/::1690512528
+test_level.tscn::PackedScene::8026915360369246657::1690512528::0::1::::<><>::uid://cnb6vef35n3ad<>uid://cqrqnlx2jpsop<>uid://xxaoff7gwbrm<>uid://cr0jcswwf7lky<>uid://dhfj5jygdghor
+::res://UI/::1690512528
+health_changed_label.gd::GDScript::-1::1689808302::0::1::::<>Label<>::
+health_changed_label.tscn::PackedScene::1319340805862124216::1690512528::0::1::::<><>::res://UI/health_changed_label.gd
+health_change_manager.gd::GDScript::-1::1689809462::0::1::::<>Control<>::
+health_change_manager.tscn::PackedScene::7661506382130197033::1690512528::0::1::::<><>::res://UI/health_change_manager.gd<>uid://s2dl5702l0qm
