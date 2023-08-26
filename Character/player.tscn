@@ -1,7 +1,7 @@
-[gd_scene load_steps=45 format=3 uid="uid://xxaoff7gwbrm"]
+[gd_scene load_steps=46 format=3 uid="uid://xxaoff7gwbrm"]
 
 [ext_resource type="Script" path="res://Character/player.gd" id="1_flj5s"]
-[ext_resource type="Texture2D" uid="uid://cf5vr3rdkcdr0" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png" id="1_uohqy"]
+[ext_resource type="Texture2D" uid="uid://cn121romhvofa" path="res://Art/Edward designs/NEW  DESIGN.png" id="2_2de4y"]
 [ext_resource type="Texture2D" uid="uid://bvqkoppprkbil" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Run/Run-Sheet.png" id="2_c1ij0"]
 [ext_resource type="Texture2D" uid="uid://cwl6m881dulgh" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Attack-01/Attack-01-Sheet.png" id="2_rdrfn"]
 [ext_resource type="Texture2D" uid="uid://cilbq1jmxocd0" path="res://Art/Legacy-Fantasy - High Forest 2.3/Character/Jumlp-All/Jump-All-Sheet.png" id="5_fhfe2"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Character/LandingState.gd" id="10_e7jjg"]
 [ext_resource type="Script" path="res://Character/StateDebugLabel.gd" id="11_xtov4"]
 [ext_resource type="Script" path="res://Character/Sword.gd" id="12_xapff"]
+[ext_resource type="Script" path="res://Character/FacingCollisionShape2D.gd" id="13_yi540"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ry2ya"]
 radius = 8.0
@@ -177,7 +178,6 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_ki5v3"]
 resource_name = "idle"
-length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -189,7 +189,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_uohqy")]
+"values": [ExtResource("2_2de4y")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -210,10 +210,10 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [1, 2, 3, 3]
 }
 
 [sub_resource type="Animation" id="Animation_01fbm"]
@@ -424,11 +424,11 @@ graph_offset = Vector2(-6.52004, 14.64)
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_d8kh5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8fwk"]
-size = Vector2(21, 47)
+size = Vector2(26.5, 47)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_flj5s")
-speed = 300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -436,8 +436,8 @@ shape = SubResource("CapsuleShape2D_ry2ya")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
-texture = ExtResource("2_rdrfn")
-hframes = 8
+texture = ExtResource("2_2de4y")
+hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -458,7 +458,6 @@ current_state = NodePath("Ground")
 
 [node name="Ground" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("air_state", "attack_state")]
 script = ExtResource("8_yi76h")
-jump_velocity = -250.0
 air_state = NodePath("../Air")
 jump_animation = "jump_start"
 attack_state = NodePath("../Attack")
@@ -466,7 +465,7 @@ attack_state = NodePath("../Attack")
 [node name="Air" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("landing_state")]
 script = ExtResource("9_sg48e")
 landing_state = NodePath("../Landing")
-double_jump_velocity = -200.0
+double_jump_velocity = -100.0
 landing_animation = "jump_end"
 
 [node name="Landing" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ground_state")]
@@ -494,12 +493,17 @@ script = ExtResource("11_xtov4")
 state_machine = NodePath("../CharacterStateMachine")
 
 [node name="Sword" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
 monitoring = false
 script = ExtResource("12_xapff")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword"]
-position = Vector2(28.5, 0)
+position = Vector2(25, 2.08165e-12)
 shape = SubResource("RectangleShape2D_o8fwk")
+script = ExtResource("13_yi540")
+facin_left_position = Vector2(-25, 2.08165e-12)
+facing_right_position = Vector2(25, 2.08165e-12)
 
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Landing" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attack" method="_on_animation_tree_animation_finished"]

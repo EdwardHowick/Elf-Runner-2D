@@ -1,0 +1,5 @@
+res://Character/Enemies/Snail/snail.tscn::d60966980f2efa4a16ae21c64eb3a74a::1690925563::res://.godot/exported/133200997/export-e87f502b37a3ad2c99911af747ad91f6-snail.scn
+res://Character/player.tscn::aba10a57aa0f19e3fb651f1b7f13e847::1690925563::res://.godot/exported/133200997/export-2af341c60ebd38c5c82bd4d41fcdb710-player.scn
+res://Levels/test_level.tscn::2fe511020ad9b0a48469a97be9f47d25::1690925563::res://.godot/exported/133200997/export-cdfc72a2c7de608a57721ef95d29853e-test_level.scn
+res://UI/health_changed_label.tscn::3750550e8362af0b2ff986ab055f2348::1690925563::res://.godot/exported/133200997/export-a2a036b9488b4a86d801c3944d44ba9a-health_changed_label.scn
+res://UI/health_change_manager.tscn::60bbad669f00213413c14e79c3593bae::1690925563::res://.godot/exported/133200997/export-28f8ac3f332073985e7d16f19483caed-health_change_manager.scn

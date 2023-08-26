@@ -137,9 +137,11 @@ graph_offset = Vector2(80.6999, 23.82)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_vthpk"]
 
-[node name="Snail" type="CharacterBody2D"]
+[node name="Snail" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
 position = Vector2(30, 88)
+collision_layer = 4
 script = ExtResource("1_fa0xf")
+hit_state = NodePath("CharacterStateMachine/Hit")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 5)
@@ -170,12 +172,21 @@ current_state = NodePath("Walk")
 
 [node name="Walk" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("5_eita3")
-can_move = false
 
 [node name="Dead" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("5_eita3")
+can_move = false
 
-[node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable", "dead_state")]
+[node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable", "dead_state", "return_state")]
 script = ExtResource("6_7pte2")
 damageable = NodePath("../../Damageable")
 dead_state = NodePath("../Dead")
+return_state = NodePath("../Walk")
+can_move = false
+
+[node name="Timer" type="Timer" parent="CharacterStateMachine/Hit"]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
+[connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
