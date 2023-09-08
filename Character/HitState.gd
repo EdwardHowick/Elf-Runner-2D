@@ -7,6 +7,7 @@ class_name HitState
 @export var dead_animation_node : String = "dead"
 @export var knockback_speed : float = 100.0
 @export var return_state : State
+
 @onready var timer : Timer = $Timer
 # Called when the node enters the scene tree for the first time.
 func _ready():

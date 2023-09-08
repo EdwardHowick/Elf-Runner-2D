@@ -1,15 +1,15 @@
 [gd_scene load_steps=19 format=3 uid="uid://cr0jcswwf7lky"]
 
-[ext_resource type="Texture2D" uid="uid://cxij3cdd4xf4t" path="res://Art/Legacy-Fantasy - High Forest 2.3/Mob/Snail/Dead-Sheet.png" id="1_8do1v"]
-[ext_resource type="Texture2D" uid="uid://dpii7hugyoc76" path="res://Art/Legacy-Fantasy - High Forest 2.3/Mob/Snail/walk-Sheet.png" id="1_b8hxd"]
-[ext_resource type="Script" path="res://Character/Enemies/Snail/snail.gd" id="1_fa0xf"]
+[ext_resource type="Script" path="res://Character/Enemies/Snail/boar.gd" id="1_0vraj"]
 [ext_resource type="Script" path="res://Character/Enemies/Snail/Damagable.gd" id="2_g1tym"]
+[ext_resource type="Texture2D" uid="uid://cuh7kv5qfjred" path="res://Art/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Hit-Vanish/Hit-Sheet-Black.png" id="3_0638w"]
+[ext_resource type="Texture2D" uid="uid://bllqnfph14eho" path="res://Art/Legacy-Fantasy - High Forest 2.3/Mob/Boar/Walk/Walk-Base-SheetBlack.png" id="3_gh6ve"]
 [ext_resource type="Script" path="res://Character/CharacterStateMachine.gd" id="4_jyldf"]
 [ext_resource type="Script" path="res://Character/State.gd" id="5_eita3"]
 [ext_resource type="Script" path="res://Character/HitState.gd" id="6_7pte2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kp50t"]
-size = Vector2(27, 22)
+size = Vector2(40, 32)
 
 [sub_resource type="Animation" id="Animation_wqq72"]
 length = 0.001
@@ -20,15 +20,27 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [ExtResource("3_gh6ve")]
 }
 
-[sub_resource type="Animation" id="Animation_f4pag"]
+[sub_resource type="Animation" id="Animation_vpkol"]
 resource_name = "dead"
-length = 0.8
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -39,7 +51,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_8do1v")]
+"values": [ExtResource("3_0638w")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -51,7 +63,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8]
+"values": [4]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -60,15 +72,15 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
+"values": [0, 1, 2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_686f0"]
+[sub_resource type="Animation" id="Animation_a8shx"]
 resource_name = "walk"
-length = 0.8
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -80,7 +92,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_b8hxd")]
+"values": [ExtResource("3_gh6ve")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -92,7 +104,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8]
+"values": [6]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -101,17 +113,17 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
+"values": [0, 1, 2, 3, 4, 5]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3hnju"]
 _data = {
 "RESET": SubResource("Animation_wqq72"),
-"dead": SubResource("Animation_f4pag"),
-"walk": SubResource("Animation_686f0")
+"dead": SubResource("Animation_vpkol"),
+"walk": SubResource("Animation_a8shx")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_chp3d"]
@@ -127,29 +139,34 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_o8fu3"]
 states/End/position = Vector2(687, 84.7812)
-states/Start/position = Vector2(200, 84.8125)
+states/Start/position = Vector2(200, 84.7968)
 states/dead/node = SubResource("AnimationNodeAnimation_chp3d")
-states/dead/position = Vector2(488.5, 84.75)
+states/dead/position = Vector2(488.5, 84.7656)
 states/walk/node = SubResource("AnimationNodeAnimation_vpvhf")
-states/walk/position = Vector2(333, 85)
+states/walk/position = Vector2(333, 84.789)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_rcnqh"), "walk", "dead", SubResource("AnimationNodeStateMachineTransition_lll1n")]
-graph_offset = Vector2(80.6999, 23.82)
+graph_offset = Vector2(92.8049, -3.80566)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_vthpk"]
 
-[node name="Snail" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
-position = Vector2(30, 88)
+[node name="Boar" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
+position = Vector2(39, 101)
 collision_layer = 4
-script = ExtResource("1_fa0xf")
+script = ExtResource("1_0vraj")
+movement_speed = 100.0
 hit_state = NodePath("CharacterStateMachine/Hit")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 5)
+modulate = Color(1, 1, 0.996078, 1)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_kp50t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_8do1v")
-hframes = 8
+scale = Vector2(-1.05362, 1.15538)
+texture = ExtResource("3_gh6ve")
+flip_h = true
+hframes = 6
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
