@@ -1,16 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://dmmkegp00cl18"]
+[gd_scene load_steps=18 format=3 uid="uid://dmmkegp00cl18"]
 
 [ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="2_sl42r"]
-[ext_resource type="Texture2D" uid="uid://wna16w3bsgg7" path="res://Art/parallax_mountain_pack/layers/parallax-mountain-bg.png" id="3_1mfcd"]
+[ext_resource type="Texture2D" uid="uid://wna16w3bsgg7" path="res://Art/Edward Imports/parallax_mountain_pack/layers/parallax-mountain-bg.png" id="3_1mfcd"]
 [ext_resource type="Texture2D" uid="uid://dhdq3uwicjrcm" path="res://Art/Legacy-Fantasy - High Forest 2.3/Trees/Dark-Tree.png" id="4_4scbk"]
 [ext_resource type="Texture2D" uid="uid://ohnqx7rtnpl7" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="4_ie634"]
-[ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Character/player.tscn" id="5_j8r33"]
-[ext_resource type="Texture2D" uid="uid://baruay8a1jyx1" path="res://Art/Edward designs/Pixel Skies 1920x1080px (Full HD)/demo01_PixelSky_1920x1080.png" id="5_slehs"]
+[ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Art/Character/player.tscn" id="5_j8r33"]
+[ext_resource type="Texture2D" uid="uid://baruay8a1jyx1" path="res://Art/Edward Imports/Pixel Skies 1920x1080px (Full HD)/demo01_PixelSky_1920x1080.png" id="5_slehs"]
 [ext_resource type="Texture2D" uid="uid://bqwrqto3iptak" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/TilesHorizontal.png" id="5_uflm2"]
-[ext_resource type="PackedScene" uid="uid://cr0jcswwf7lky" path="res://Character/Enemies/Snail/boar.tscn" id="6_ksyhb"]
+[ext_resource type="PackedScene" uid="uid://cr0jcswwf7lky" path="res://Art/Character/Enemies/Boar/boar.tscn" id="6_ksyhb"]
 [ext_resource type="PackedScene" uid="uid://dhfj5jygdghor" path="res://UI/health_change_manager.tscn" id="7_i21jh"]
-[ext_resource type="Script" path="res://Levels/Fallzone.gd" id="10_5rccg"]
-[ext_resource type="Script" path="res://nextlevel1.gd" id="10_n2v0x"]
+[ext_resource type="Script" path="res://UI/nextlevel1.gd" id="10_n2v0x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x01cw"]
 texture = ExtResource("2_sl42r")
@@ -13360,9 +13359,6 @@ sources/2 = SubResource("TileSetAtlasSource_fekww")
 sources/3 = SubResource("TileSetAtlasSource_mvf76")
 sources/4 = SubResource("TileSetAtlasSource_0ssoo")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_al7nm"]
-size = Vector2(5199, 40)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lhenj"]
 size = Vector2(20, 93)
 
@@ -13413,36 +13409,23 @@ drag_vertical_enabled = true
 [node name="Boar" parent="." instance=ExtResource("6_ksyhb")]
 position = Vector2(160, 76)
 rotation = -0.000775484
-movement_speed = 15.0
 
 [node name="Boar2" parent="." instance=ExtResource("6_ksyhb")]
 position = Vector2(244, 77)
 rotation = -0.000775484
-movement_speed = 15.0
 
 [node name="Boar3" parent="." instance=ExtResource("6_ksyhb")]
 position = Vector2(618, 73)
 rotation = -0.000775484
-movement_speed = 15.0
 
 [node name="Boar4" parent="." instance=ExtResource("6_ksyhb")]
 position = Vector2(746, 69)
 rotation = -0.000775484
-movement_speed = 15.0
 
 [node name="HealthChangeManager" parent="." instance=ExtResource("7_i21jh")]
 offset_top = 1.0
 offset_bottom = 41.0
 metadata/_edit_use_anchors_ = true
-
-[node name="Fallzone" type="Area2D" parent="."]
-collision_layer = 7
-collision_mask = 7
-script = ExtResource("10_5rccg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fallzone"]
-position = Vector2(88, 369)
-shape = SubResource("RectangleShape2D_al7nm")
 
 [node name="NextLevel" type="Area2D" parent="."]
 collision_layer = 7
@@ -13453,5 +13436,4 @@ script = ExtResource("10_n2v0x")
 position = Vector2(975, 43.5)
 shape = SubResource("RectangleShape2D_lhenj")
 
-[connection signal="body_entered" from="Fallzone" to="Fallzone" method="_on_body_entered"]
 [connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]

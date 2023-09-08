@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="GodotGame"
-run/main_scene="res://menu.tscn"
+run/main_scene="res://UI/menu.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-SignalBus="*res://signal_bus.gd"
+SignalBus="*res://UI/signal_bus.gd"
 StageManager="*res://StageManager.tscn"
 
 [display]

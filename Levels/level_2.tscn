@@ -1,17 +1,17 @@
 [gd_scene load_steps=16 format=3 uid="uid://ja3k6kcax354"]
 
-[ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_qjknl"]
-[ext_resource type="Texture2D" uid="uid://wna16w3bsgg7" path="res://Art/parallax_mountain_pack/layers/parallax-mountain-bg.png" id="2_yp05v"]
-[ext_resource type="Texture2D" uid="uid://ohnqx7rtnpl7" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="3_a7mf4"]
-[ext_resource type="Texture2D" uid="uid://t1i1e6pevd2w" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/BuildingsHorizontal.png" id="4_4g7sx"]
-[ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Character/player.tscn" id="5_2jci7"]
-[ext_resource type="Texture2D" uid="uid://dvoj357hb57h7" path="res://Art/background.png" id="5_3jrtj"]
-[ext_resource type="Texture2D" uid="uid://dp4di4obuaofs" path="res://Art/caveparalax.png" id="6_5dj8a"]
-[ext_resource type="PackedScene" uid="uid://dhfj5jygdghor" path="res://UI/health_change_manager.tscn" id="7_wuuu2"]
-[ext_resource type="Script" path="res://Levels/NextLevel1.gd" id="9_i3qf7"]
+[ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_rhc70"]
+[ext_resource type="Texture2D" uid="uid://wna16w3bsgg7" path="res://Art/Edward Imports/parallax_mountain_pack/layers/parallax-mountain-bg.png" id="2_3dd2c"]
+[ext_resource type="Texture2D" uid="uid://ohnqx7rtnpl7" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="3_r0gc1"]
+[ext_resource type="Texture2D" uid="uid://t1i1e6pevd2w" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/BuildingsHorizontal.png" id="4_6xvg3"]
+[ext_resource type="Texture2D" uid="uid://oke2ta5os8wd" path="res://Art/Edward Imports/background.png" id="5_crt02"]
+[ext_resource type="Texture2D" uid="uid://cabxos6swgkp0" path="res://Art/Edward Imports/caveparalax.png" id="6_q1afg"]
+[ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Character/player.tscn" id="7_tss0i"]
+[ext_resource type="PackedScene" uid="uid://dhfj5jygdghor" path="res://UI/health_change_manager.tscn" id="8_yl2pb"]
+[ext_resource type="Script" path="res://Levels/NextLevel1.gd" id="9_j1ns1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x01cw"]
-texture = ExtResource("1_qjknl")
+texture = ExtResource("1_rhc70")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -1436,7 +1436,7 @@ texture = ExtResource("1_qjknl")
 4:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nxfah"]
-texture = ExtResource("2_yp05v")
+texture = ExtResource("2_3dd2c")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -1949,7 +1949,7 @@ texture = ExtResource("2_yp05v")
 16:9/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fekww"]
-texture = ExtResource("3_a7mf4")
+texture = ExtResource("3_r0gc1")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -3050,7 +3050,7 @@ texture = ExtResource("3_a7mf4")
 18:14/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jbfkv"]
-texture = ExtResource("4_4g7sx")
+texture = ExtResource("4_6xvg3")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -4182,15 +4182,15 @@ motion_mirroring = Vector2(1130, 2.08165e-12)
 [node name="BackgroundCave" type="Sprite2D" parent="Backgrounds/ParallaxBackground/ParallaxLayer"]
 position = Vector2(558, 170.5)
 scale = Vector2(2.28459, 2.012)
-texture = ExtResource("5_3jrtj")
+texture = ExtResource("5_crt02")
 
 [node name="BackgroundCaveDark" type="Sprite2D" parent="Backgrounds/ParallaxBackground/ParallaxLayer"]
 modulate = Color(0.482353, 0.596078, 0.262745, 1)
 position = Vector2(491.267, 128.966)
 scale = Vector2(0.982176, 0.887931)
-texture = ExtResource("6_5dj8a")
+texture = ExtResource("6_q1afg")
 
-[node name="Player" parent="." instance=ExtResource("5_2jci7")]
+[node name="Player" parent="." instance=ExtResource("7_tss0i")]
 position = Vector2(-132, 70)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
@@ -4203,13 +4203,13 @@ position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="HealthChangeManager" parent="." instance=ExtResource("7_wuuu2")]
+[node name="HealthChangeManager" parent="." instance=ExtResource("8_yl2pb")]
 metadata/_edit_use_anchors_ = true
 
 [node name="NextLevel" type="Area2D" parent="."]
 collision_layer = 7
 collision_mask = 7
-script = ExtResource("9_i3qf7")
+script = ExtResource("9_j1ns1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
 position = Vector2(1309, 530)
