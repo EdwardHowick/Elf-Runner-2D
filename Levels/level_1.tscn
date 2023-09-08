@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bqwrqto3iptak" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/TilesHorizontal.png" id="5_uflm2"]
 [ext_resource type="PackedScene" uid="uid://cr0jcswwf7lky" path="res://Art/Character/Enemies/Boar/boar.tscn" id="6_ksyhb"]
 [ext_resource type="PackedScene" uid="uid://dhfj5jygdghor" path="res://UI/health_change_manager.tscn" id="7_i21jh"]
-[ext_resource type="Script" path="res://UI/nextlevel1.gd" id="10_n2v0x"]
+[ext_resource type="Script" path="res://nextlevel1.gd" id="10_2oqqt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x01cw"]
 texture = ExtResource("2_sl42r")
@@ -13430,7 +13430,7 @@ metadata/_edit_use_anchors_ = true
 [node name="NextLevel" type="Area2D" parent="."]
 collision_layer = 7
 collision_mask = 7
-script = ExtResource("10_n2v0x")
+script = ExtResource("10_2oqqt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
 position = Vector2(975, 43.5)

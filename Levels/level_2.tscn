@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://t1i1e6pevd2w" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/BuildingsHorizontal.png" id="4_6xvg3"]
 [ext_resource type="Texture2D" uid="uid://oke2ta5os8wd" path="res://Art/Edward Imports/background.png" id="5_crt02"]
 [ext_resource type="Texture2D" uid="uid://cabxos6swgkp0" path="res://Art/Edward Imports/caveparalax.png" id="6_q1afg"]
-[ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Character/player.tscn" id="7_tss0i"]
+[ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Art/Character/player.tscn" id="7_tss0i"]
 [ext_resource type="PackedScene" uid="uid://dhfj5jygdghor" path="res://UI/health_change_manager.tscn" id="8_yl2pb"]
 [ext_resource type="Script" path="res://Levels/NextLevel1.gd" id="9_j1ns1"]
 

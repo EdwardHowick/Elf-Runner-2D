@@ -22,3 +22,4 @@ func on_signal_health_changed(node : Node, amount_changed : int):
 		label_instance.modulate = heal_color
 	else:
 		label_instance.modulate = damage_color
+		
