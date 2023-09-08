@@ -1,7 +1,6 @@
-res://UI/health_change_manager.tscn
 res://UI/transitioner.tscn
-res://UI/menu.tscn
+res://menu.tscn
 res://Levels/level_1.tscn
 res://Levels/level_2.tscn
 res://UI/health_changed_label.tscn
-res://menu.tscn
+res://UI/health_change_manager.tscn

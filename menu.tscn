@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://do48djggncjnu"]
 
-[ext_resource type="Script" path="res://menu.gd" id="1_uhaop"]
-[ext_resource type="Texture2D" uid="uid://oke2ta5os8wd" path="res://Art/Edward Imports/background.png" id="2_evbcy"]
+[ext_resource type="Script" path="res://menu.gd" id="1_l2x5q"]
+[ext_resource type="Texture2D" uid="uid://dvoj357hb57h7" path="res://Art/background.png" id="2_3aoxe"]
 
 [node name="Menu" type="Node2D"]
-script = ExtResource("1_uhaop")
+script = ExtResource("1_l2x5q")
 
 [node name="Demo03PixelSky1920x1080" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(2.38365, 2.675)
-texture = ExtResource("2_evbcy")
+texture = ExtResource("2_3aoxe")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Demo03PixelSky1920x1080"]
 position = Vector2(-184.279, -131.536)
