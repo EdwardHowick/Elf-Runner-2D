@@ -527,12 +527,14 @@ facing_right_position = Vector2(29, 2.08165e-12)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Transitioner" parent="CanvasLayer" instance=ExtResource("13_qoeit")]
+visible = false
 metadata/_edit_use_anchors_ = true
 
 [node name="Backtomenu" type="Button" parent="CanvasLayer" node_paths=PackedStringArray("transitioner")]
 offset_left = 3.0
 offset_right = 131.0
 offset_bottom = 31.0
+scale = Vector2(0.5, 0.5)
 text = "Back to menu...
 "
 script = ExtResource("14_cmm8d")

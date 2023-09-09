@@ -3,7 +3,6 @@ extends CharacterBody2D
 class_name Player
 
 @export var speed : float = 200.0
-@export var transitioner : Transitioner
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var state_machine : CharacterStateMachine = $CharacterStateMachine

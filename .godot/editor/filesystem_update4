@@ -1,6 +1,9 @@
-res://UI/transitioner.tscn
-res://menu.tscn
 res://Levels/level_1.tscn
 res://Levels/level_2.tscn
-res://UI/health_changed_label.tscn
-res://UI/health_change_manager.tscn
+res://menu.tscn
+res://Character/player.tscn
+res://UI/death_screen.tscn
+res://death_screen.tscn
+res://Death Screen.gd
+res://Levels/Fallzone1.gd
+res://Character/Enemies/Boar/boar.tscn
