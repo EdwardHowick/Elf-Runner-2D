@@ -165,8 +165,7 @@ shape = SubResource("RectangleShape2D_kp50t")
 scale = Vector2(-1.05362, 1.15538)
 texture = ExtResource("3_gh6ve")
 flip_h = true
-hframes = 6
-frame = 4
+hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

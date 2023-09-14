@@ -8,4 +8,4 @@ D - Move Right
 
 Space - Jump
 
-Right Click - Attack
+left Click - Attack

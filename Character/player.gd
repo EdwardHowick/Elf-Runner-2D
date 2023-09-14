@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
 class_name Player
-
+var enemy_attack_cooldown = true
+var playerinattackrange = false
+var health = 100
 @export var speed : float = 200.0
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var animation_tree : AnimationTree = $AnimationTree
@@ -17,6 +19,11 @@ func _ready():
 	animation_tree.active = true
 
 func _physics_process(delta):
+	update_health()
+	enemy_attack()
+	if health <= 0:
+		get_tree().change_scene_to_file("res://UI/death_screen.tscn")
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -46,3 +53,43 @@ func update_facing_direction():
 		sprite.flip_h = true
 		
 	emit_signal("facing_direction_changed", !sprite.flip_h)
+	
+	
+func _on_damage_area_body_entered(body):
+	if body.name == "HostileEnemy":
+		playerinattackrange = true
+		
+
+
+func _on_damage_area_body_exited(body):
+	playerinattackrange = false
+
+
+func enemy_attack():
+	if playerinattackrange and enemy_attack_cooldown == true:
+		health = health - 20
+		enemy_attack_cooldown = false
+		$damage_area/attack_cooldown.start()
+		print_debug(health)
+		
+
+
+func _on_attack_cooldown_timeout():
+	enemy_attack_cooldown = true
+
+
+func update_health():
+	var healthbar = $healthbar
+	healthbar.value = health
+	if health >= 100:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true
+		
+func _on_regen_timer_timeout():
+	if health < 100:
+		health = health + 10
+	if health > 100:
+		health = 100
+	if health <= 0:
+		health = 0

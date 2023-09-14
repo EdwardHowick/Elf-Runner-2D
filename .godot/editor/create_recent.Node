@@ -1,7 +1,12 @@
-Sprite2D
-Button
+Timer
+ProgressBar
 CollisionShape2D
 Area2D
+CharacterBody2D
+AudioStreamPlayer2D
+AnimatedSprite2D
+Sprite2D
+Button
 Node2D
 Node
 TileMap
@@ -16,12 +21,9 @@ CanvasLayer
 CheckButton
 AnimationPlayer
 TextureRect
-Timer
 State
 CharacterStateMachine
 AnimationTree
 Control
-CharacterBody2D
-AnimatedSprite2D
 RemoteTransform2D
 Camera2D

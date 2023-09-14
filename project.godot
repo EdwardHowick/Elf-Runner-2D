@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="GodotGame"
-run/main_scene="res://menu.tscn"
+config/name="Elf Runner 2D"
+run/main_scene="res://UI/menu.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SignalBus="*res://signal_bus.gd"
 StageManager="*res://StageManager.tscn"
+AudioStreamPlayer2d="*res://Music/audio_stream_player_2d.tscn"
 
 [display]
 
