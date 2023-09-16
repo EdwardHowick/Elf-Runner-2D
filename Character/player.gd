@@ -1,14 +1,15 @@
-extends CharacterBody2D
-
+extends CharacterBody2D	
 class_name Player
+@export var transitioner : Transitioner
 var enemy_attack_cooldown = true
 var playerinattackrange = false
+var batattackrangeplayer = false
 var health = 100
+@onready var animation_player = $AnimationPlayer
 @export var speed : float = 200.0
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var state_machine : CharacterStateMachine = $CharacterStateMachine
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction : Vector2 = Vector2.ZERO
@@ -22,7 +23,11 @@ func _physics_process(delta):
 	update_health()
 	enemy_attack()
 	if health <= 0:
-		get_tree().change_scene_to_file("res://UI/death_screen.tscn")
+		animation_player.play("death")
+		transitioner.death_fade_animation()
+		
+		
+		
 		
 	# Add the gravity.
 	if not is_on_floor():
@@ -56,13 +61,17 @@ func update_facing_direction():
 	
 	
 func _on_damage_area_body_entered(body):
-	if body.name == "HostileEnemy":
-		playerinattackrange = true
+		if body.is_in_group("Bat"):
+			batattackrangeplayer = true
+		if body.is_in_group("Ghost"):
+			playerinattackrange = true
+			
 		
 
 
 func _on_damage_area_body_exited(body):
 	playerinattackrange = false
+	batattackrangeplayer = false
 
 
 func enemy_attack():
@@ -70,7 +79,10 @@ func enemy_attack():
 		health = health - 20
 		enemy_attack_cooldown = false
 		$damage_area/attack_cooldown.start()
-		print_debug(health)
+	if batattackrangeplayer and enemy_attack_cooldown == true:
+		health = health - 10
+		enemy_attack_cooldown = false
+		$damage_area/attack_cooldown.start()
 		
 
 
@@ -93,3 +105,10 @@ func _on_regen_timer_timeout():
 		health = 100
 	if health <= 0:
 		health = 0
+
+		
+func _on_area_2d_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	if area.name == "Fallzone1":
+		transitioner.death_fade_animation()
+	if area.name == "NextLevel":
+		transitioner.next_level_animation()

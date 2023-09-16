@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 class_name HostileEnemy
-
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var animation_tree : AnimationTree = $AnimationTree
 @export var starting_move_direction : Vector2 = Vector2.LEFT
@@ -10,7 +9,7 @@ class_name HostileEnemy
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var Player_chase = false
 var Player = null
-@export var SPEED : float = 75.0
+@export var SPEED : float = 75
 func _ready():
 	animation_tree.active = true
 

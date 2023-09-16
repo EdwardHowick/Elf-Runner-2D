@@ -153,7 +153,7 @@ graph_offset = Vector2(92.8049, -3.80566)
 position = Vector2(39, 101)
 collision_layer = 4
 script = ExtResource("1_0vraj")
-movement_speed = 100.0
+starting_move_direction = Vector2(-1, 2.08165e-12)
 hit_state = NodePath("CharacterStateMachine/Hit")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -204,5 +204,10 @@ can_move = false
 wait_time = 0.25
 one_shot = true
 
+[node name="TurnTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
 [connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
+[connection signal="timeout" from="TurnTimer" to="." method="_on_turn_timer_timeout"]

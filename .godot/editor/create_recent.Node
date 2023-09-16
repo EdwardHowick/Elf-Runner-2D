@@ -1,11 +1,12 @@
-Timer
-ProgressBar
-CollisionShape2D
-Area2D
-CharacterBody2D
-AudioStreamPlayer2D
+AnimationPlayer
 AnimatedSprite2D
 Sprite2D
+Timer
+CollisionShape2D
+Area2D
+ProgressBar
+CharacterBody2D
+AudioStreamPlayer2D
 Button
 Node2D
 Node
@@ -19,7 +20,6 @@ ColorRect
 MenuBar
 CanvasLayer
 CheckButton
-AnimationPlayer
 TextureRect
 State
 CharacterStateMachine

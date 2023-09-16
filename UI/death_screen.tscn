@@ -12,12 +12,12 @@ position = Vector2(5, -3)
 scale = Vector2(1.16326, 1.05151)
 texture = ExtResource("2_ostus")
 
-[node name="RespawnButton" type="Button" parent="."]
+[node name="RestartButton" type="Button" parent="."]
 offset_left = -53.0
 offset_top = -6.0
 offset_right = 58.0
 offset_bottom = 40.0
-text = "Respawn
+text = "Restart
 "
 metadata/_edit_use_anchors_ = true
 
@@ -50,6 +50,6 @@ position = Vector2(6, -46)
 scale = Vector2(0.525745, 0.545113)
 texture = ExtResource("3_kigwm")
 
-[connection signal="pressed" from="RespawnButton" to="." method="_on_respawn_button_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_respawn_button_pressed"]
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

@@ -17,8 +17,8 @@ func _on_quit_button_pressed():
 
 
 func _on_menu_button_pressed():
-	get_tree().change_scene_to_file("res://menu.tscn")
+	get_tree().change_scene_to_file("res://UI/menu.tscn")
 
 
 func _on_respawn_button_pressed():
-	get_tree().change_scene_to_file("res://Levels/level_2.tscn")
+	get_tree().change_scene_to_file("res://Levels/level_1.tscn")

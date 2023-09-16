@@ -23,7 +23,7 @@ AudioStreamPlayer2d="*res://Music/audio_stream_player_2d.tscn"
 
 [display]
 
-window/size/viewport_height=649
+window/size/viewport_height=720
 window/size/mode=2
 window/stretch/scale=4.0
 
@@ -64,7 +64,10 @@ attack={
 
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
-2d_physics/layer_3="Enemy"
+2d_physics/layer_3="PutEnemyLayerToGETHIT"
+2d_physics/layer_4="EnemyDamageArea"
+2d_physics/layer_5="BatDetectionArea"
+2d_physics/layer_9="Fallzone"
 
 [physics]
 
