@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsmb32ym1lrqq"]
+
+[ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_kj1jf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mlgre"]
+size = Vector2(46, 12)
+
+[sub_resource type="Animation" id="Animation_4cvnb"]
+resource_name = "move_loop"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(2.08165e-12, -700)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ybwps"]
+_data = {
+"move_loop": SubResource("Animation_4cvnb")
+}
+
+[node name="MovingPlatform" type="Node2D"]
+
+[node name="Platform" type="AnimatableBody2D" parent="."]
+position = Vector2(2.08165e-12, -646.755)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+texture = ExtResource("1_kj1jf")
+region_enabled = true
+region_rect = Rect2(80, 88, 48, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+shape = SubResource("RectangleShape2D_mlgre")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
+root_node = NodePath("../CollisionShape2D")
+autoplay = "move_loop"
+libraries = {
+"": SubResource("AnimationLibrary_ybwps")
+}

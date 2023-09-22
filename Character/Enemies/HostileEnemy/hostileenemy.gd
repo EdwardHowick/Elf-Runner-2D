@@ -9,7 +9,8 @@ class_name HostileEnemy
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var Player_chase = false
 var Player = null
-@export var SPEED : float = 75
+var rng = RandomNumberGenerator.new()
+@export var SPEED : float = rng.randi_range(20,70)
 func _ready():
 	animation_tree.active = true
 

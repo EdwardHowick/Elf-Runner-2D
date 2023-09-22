@@ -14584,7 +14584,6 @@ rotation = -0.000775484
 position = Vector2(-13, 67)
 
 [node name="Transitioner" parent="Player" instance=ExtResource("12_8enfo")]
-visible = true
 offset_left = 1.0
 offset_top = -1.0
 offset_right = 1.0

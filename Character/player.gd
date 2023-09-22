@@ -18,7 +18,11 @@ signal facing_direction_changed(facing_right : bool)
 
 func _ready():
 	animation_tree.active = true
-
+	
+func _process(delta):
+	if Input.is_action_pressed("escape"):
+		transitioner.fade_out_animation()
+		
 func _physics_process(delta):
 	update_health()
 	enemy_attack()
@@ -112,3 +116,5 @@ func _on_area_2d_area_shape_entered(area_rid, area, area_shape_index, local_shap
 		transitioner.death_fade_animation()
 	if area.name == "NextLevel":
 		transitioner.next_level_animation()
+	if area.name == "NextLevel1":
+		transitioner.level_3_fade_out()
