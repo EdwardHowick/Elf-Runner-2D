@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cr0jcswwf7lky"]
+[gd_scene load_steps=20 format=3 uid="uid://cr0jcswwf7lky"]
 
 [ext_resource type="Script" path="res://Character/Enemies/Boar/boar.gd" id="1_0vraj"]
 [ext_resource type="Script" path="res://Character/Enemies/Boar/Damagable.gd" id="2_g1tym"]
@@ -149,9 +149,12 @@ graph_offset = Vector2(92.8049, -3.80566)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_vthpk"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5h37"]
+
 [node name="Boar" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
 position = Vector2(39, 101)
 collision_layer = 4
+collision_mask = 129
 script = ExtResource("1_0vraj")
 starting_move_direction = Vector2(-1, 2.08165e-12)
 hit_state = NodePath("CharacterStateMachine/Hit")
@@ -208,6 +211,15 @@ one_shot = true
 wait_time = 4.0
 autostart = true
 
+[node name="turn" type="Area2D" parent="."]
+position = Vector2(0, 2)
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="turn"]
+shape = SubResource("RectangleShape2D_d5h37")
+
 [connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
 [connection signal="timeout" from="TurnTimer" to="." method="_on_turn_timer_timeout"]
+[connection signal="area_shape_entered" from="turn" to="." method="_on_turn_area_shape_entered"]

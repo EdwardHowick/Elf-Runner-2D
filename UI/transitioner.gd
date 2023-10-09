@@ -22,6 +22,8 @@ func new_level_animation():
 	animation_player.play("fade_in_new_level")
 func level_3_fade_out():
 	animation_player.play("fade_out_level_3")
+func game_end():
+	animation_player.play("gameend")
 
 
 func _on_animation_player_animation_finished(anim_name):
@@ -33,4 +35,6 @@ func _on_animation_player_animation_finished(anim_name):
 		get_tree().change_scene_to_file("res://Levels/level_2.tscn")
 	if anim_name == "fade_out_level_3":
 		get_tree().change_scene_to_file("res://Levels/level_3.tscn")
+	if anim_name == "gameend":
+		get_tree().change_scene_to_file("res://Levels/end_credits.tscn")
 			

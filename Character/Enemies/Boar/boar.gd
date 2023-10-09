@@ -33,3 +33,15 @@ func _on_turn_timer_timeout():
 		sprite.flip_h = true
 	if movement_speed < 0:
 		sprite.flip_h = false
+
+
+
+
+
+func _on_turn_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	if area.name == "turnaround":
+		movement_speed = -60
+		sprite.flip_h = false
+	if area.name == "turnaround2":
+		movement_speed = 60
+		sprite.flip_h = true

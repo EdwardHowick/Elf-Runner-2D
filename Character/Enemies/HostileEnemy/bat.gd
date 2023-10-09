@@ -10,7 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var Player_chase = false
 var Player = null
 var rng = RandomNumberGenerator.new()
-@export var SPEED : float = rng.randi_range(80,150)
+@export var SPEED : float = rng.randi_range(50,100)
 func _ready():
 	animation_tree.active = true
 

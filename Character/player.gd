@@ -118,3 +118,5 @@ func _on_area_2d_area_shape_entered(area_rid, area, area_shape_index, local_shap
 		transitioner.next_level_animation()
 	if area.name == "NextLevel1":
 		transitioner.level_3_fade_out()
+	if area.name == "gameend":
+		transitioner.game_end()

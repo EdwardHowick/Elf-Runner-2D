@@ -1,6 +1,8 @@
-res://Character/player.tscn
+res://Levels/end_credits.tscn
 res://UI/menu.tscn
-res://Levels/level_2.tscn
 res://Levels/level_1.tscn
-res://UI/death_screen.tscn
-res://Music/audio_stream_player_2d.tscn
+res://Character/Enemies/Boar/boar.tscn
+res://Levels/level_3.tscn
+res://Character/player.tscn
+res://Levels/level_2.tscn
+res://UI/transitioner.tscn

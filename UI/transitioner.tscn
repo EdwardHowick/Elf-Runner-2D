@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkimox3nbix8p"]
+[gd_scene load_steps=12 format=3 uid="uid://bkimox3nbix8p"]
 
 [ext_resource type="Script" path="res://UI/transitioner.gd" id="1_xhwpv"]
 
@@ -174,6 +174,33 @@ tracks/1/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_mg85l"]
+resource_name = "gameend"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(25, 25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jeq8i"]
 _data = {
 "fade_in": SubResource("Animation_rhwbv"),
@@ -181,7 +208,8 @@ _data = {
 "fade_out": SubResource("Animation_ot7kr"),
 "fade_out_death": SubResource("Animation_a8ihl"),
 "fade_out_level_3": SubResource("Animation_3d0xy"),
-"fade_out_next_level": SubResource("Animation_w5fxl")
+"fade_out_next_level": SubResource("Animation_w5fxl"),
+"gameend": SubResource("Animation_mg85l")
 }
 
 [node name="Transitioner" type="Control"]

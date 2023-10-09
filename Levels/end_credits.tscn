@@ -1,30 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://do48djggncjnu"]
+[gd_scene load_steps=5 format=3 uid="uid://63nr6jou7l52"]
 
-[ext_resource type="Script" path="res://UI/menu.gd" id="1_l2x5q"]
-[ext_resource type="Texture2D" uid="uid://bfaek2f7t5vxf" path="res://Art/Edward designs/background2.png" id="2_0afms"]
-[ext_resource type="Texture2D" uid="uid://htfd3tutrl3c" path="res://Art/Edward designs/Title.png" id="3_372sq"]
-[ext_resource type="PackedScene" uid="uid://bkimox3nbix8p" path="res://UI/transitioner.tscn" id="4_kyt75"]
+[ext_resource type="Texture2D" uid="uid://bfaek2f7t5vxf" path="res://Art/Edward designs/background2.png" id="1_dg6i3"]
+[ext_resource type="Script" path="res://UI/menu.gd" id="1_nsclf"]
+[ext_resource type="Texture2D" uid="uid://ccp5xf6xyo1tg" path="res://Art/Edward designs/cooltext444779756368315-1.png" id="2_pygc1"]
+[ext_resource type="PackedScene" uid="uid://bkimox3nbix8p" path="res://UI/transitioner.tscn" id="3_11j23"]
 
-[node name="Menu" type="Node2D"]
-script = ExtResource("1_l2x5q")
+[node name="End_Credits" type="Node2D"]
+script = ExtResource("1_nsclf")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(1.16326, 1.05151)
-texture = ExtResource("2_0afms")
+texture = ExtResource("1_dg6i3")
 
 [node name="Title" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, -70)
-scale = Vector2(0.413991, 0.441175)
-texture = ExtResource("3_372sq")
+scale = Vector2(0.1, 0.107)
+texture = ExtResource("2_pygc1")
 
-[node name="StartButton" type="Button" parent="."]
+[node name="PlayAgainButton" type="Button" parent="."]
 offset_left = -56.0
 offset_top = -18.0
 offset_right = 55.0
 offset_bottom = 28.0
 theme_override_font_sizes/font_size = 20
-text = "Start
+text = "Play Again
 "
 metadata/_edit_use_anchors_ = true
 
@@ -44,7 +44,7 @@ position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="Transitioner" parent="." instance=ExtResource("4_kyt75")]
+[node name="Transitioner" parent="." instance=ExtResource("3_11j23")]
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="PlayAgainButton" to="." method="_on_play_again_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
