@@ -65,14 +65,13 @@ func update_facing_direction():
 	
 	
 func _on_damage_area_body_entered(body):
-		if body.is_in_group("Bat"):
-			batattackrangeplayer = true
-		if body.is_in_group("Ghost"):
-			playerinattackrange = true
-			
+	if body.is_in_group("Bat"):
+		batattackrangeplayer = true
+	if body.is_in_group("Ghost"):
+		playerinattackrange = true
+	if body.name == "spinnybody":
+		transitioner.death_fade_animation()
 		
-
-
 func _on_damage_area_body_exited(body):
 	playerinattackrange = false
 	batattackrangeplayer = false

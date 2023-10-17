@@ -19,5 +19,6 @@ func _process(delta):
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_taqqi")
+autoplay = true
 max_distance = 1e+06
 script = SubResource("GDScript_e58a2")

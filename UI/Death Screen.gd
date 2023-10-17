@@ -21,4 +21,4 @@ func _on_menu_button_pressed():
 
 
 func _on_respawn_button_pressed():
-	get_tree().change_scene_to_file("res://Levels/level_1.tscn")
+	get_tree().change_scene_to_file("res://Levels/level_2.tscn")

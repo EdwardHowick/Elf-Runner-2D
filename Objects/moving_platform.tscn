@@ -30,7 +30,7 @@ _data = {
 [node name="MovingPlatform" type="Node2D"]
 
 [node name="Platform" type="AnimatableBody2D" parent="."]
-position = Vector2(229.368, 5.96828e-13)
+position = Vector2(44.4444, 1.15647e-13)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform"]
 texture = ExtResource("1_3kki6")

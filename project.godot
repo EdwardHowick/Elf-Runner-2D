@@ -24,7 +24,7 @@ AudioStreamPlayer2d="*res://Music/audio_stream_player_2d.tscn"
 [display]
 
 window/size/viewport_height=720
-window/size/mode=2
+window/size/mode=3
 window/stretch/scale=4.0
 
 [input]

@@ -478,7 +478,7 @@ states/jump_start/position = Vector2(392, -6)
 states/move/node = SubResource("AnimationNodeBlendSpace1D_bjy5n")
 states/move/position = Vector2(392, 100)
 transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_i4ph4"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_2puwh"), "jump_start", "jump_end", SubResource("AnimationNodeStateMachineTransition_50dqq"), "jump_end", "move", SubResource("AnimationNodeStateMachineTransition_3ny4h"), "jump_start", "double_jump", SubResource("AnimationNodeStateMachineTransition_kd0lq"), "double_jump", "jump_end", SubResource("AnimationNodeStateMachineTransition_8aae2"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_qlg2k"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_s3wes"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_qrood"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_bn00d")]
-graph_offset = Vector2(243.125, -242.598)
+graph_offset = Vector2(114.14, -46.0825)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_d8kh5"]
 
@@ -496,8 +496,8 @@ func _process(delta):
 size = Vector2(23.25, 47)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_am055"]
-radius = 25.0
-height = 66.0
+radius = 9.0
+height = 50.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("transitioner")]
 collision_layer = 18
@@ -520,8 +520,8 @@ shape = SubResource("RectangleShape2D_ct4tc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
-texture = ExtResource("6_emck3")
-hframes = 15
+texture = ExtResource("2_2de4y")
+hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

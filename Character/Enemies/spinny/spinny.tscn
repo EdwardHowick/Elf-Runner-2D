@@ -1,0 +1,171 @@
+[gd_scene load_steps=11 format=3 uid="uid://ltsn6h4bcsao"]
+
+[ext_resource type="Script" path="res://Character/Enemies/spinny/spinny.gd" id="1_0oyjc"]
+[ext_resource type="Texture2D" uid="uid://c7yjavl3q3m88" path="res://Art/Edward designs/ballspin.png" id="2_12rdk"]
+[ext_resource type="Texture2D" uid="uid://dc8k3gn55yoov" path="res://Art/Edward designs/ballspinning.png" id="3_5hkay"]
+
+[sub_resource type="Animation" id="Animation_hb38o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_g20t0"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_12rdk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_o3rms"]
+resource_name = "moveloop"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(2.08165e-12, -200)]
+}
+
+[sub_resource type="Animation" id="Animation_qbhj3"]
+resource_name = "spinning"
+length = 4.5
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_5hkay")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_roie0"]
+_data = {
+"RESET": SubResource("Animation_hb38o"),
+"idle": SubResource("Animation_g20t0"),
+"moveloop": SubResource("Animation_o3rms"),
+"spinning": SubResource("Animation_qbhj3")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w1jbk"]
+radius = 142.004
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_143gp"]
+radius = 15.0333
+
+[node name="spinny" type="Node2D"]
+script = ExtResource("1_0oyjc")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+root_node = NodePath("../spinnybody/Sprite2D")
+autoplay = "idle"
+speed_scale = 17.94
+libraries = {
+"": SubResource("AnimationLibrary_roie0")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../spinnybody/Sprite2D")
+autoplay = "moveloop"
+libraries = {
+"": SubResource("AnimationLibrary_roie0")
+}
+
+[node name="spinnybody" type="AnimatableBody2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+collision_layer = 32
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="spinnybody"]
+texture = ExtResource("2_12rdk")
+
+[node name="spindetection2" type="Area2D" parent="spinnybody"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spinnybody/spindetection2"]
+shape = SubResource("CircleShape2D_w1jbk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spinnybody"]
+shape = SubResource("CircleShape2D_143gp")
+
+[connection signal="body_entered" from="spinnybody/spindetection2" to="." method="_on_spindetection_2_body_entered"]
+[connection signal="body_exited" from="spinnybody/spindetection2" to="." method="_on_spindetection_2_body_exited"]
